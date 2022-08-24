@@ -1,28 +1,36 @@
-from turtle import onclick
 import streamlit as st
 import pandas as pd
 
 
-data = [10, 100 ,100]
-data2 = [100,100,100]
+if 'increase_count' not in st.session_state:
+    st.session_state['increase_count']=0
 
-df = pd.DataFrame(data=data)
-st.write('hi')
-result = st.button('click')
+def inc_session():
+    st.session_state['increase_count']+=1
+    
+
+def dec_session():
+    if st.session_state['increase_count'] > 0:
+        st.session_state['increase_count'] -= 1
+    else:
+        return
+ 
+
+result = st.button('click',key='clearbutton',on_click=inc_session)
+modify = st.button('수정',on_click=dec_session)
 
 if result:
-    data = data2
-    st.write(result)
-    st.area_chart(data=data)
-    st.write(data)
-    st.write(data2)
-else:
-    st.area_chart(data=data)
+    if st.session_state['clearbutton']:
+        st.session_state
+        "hi"
+    else :
+        "bye"
 
+if modify:
+    if st.session_state['clearbutton']==False:
+        st.session_state
+        "bye"
 
-
-
-df
 
 
 
