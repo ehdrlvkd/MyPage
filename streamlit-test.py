@@ -1,10 +1,7 @@
+from turtle import onclick
 import streamlit as st
 import pandas as pd
 
-def df_change(df,data):
-    df= pd.DataFrame(data=data)
-    df
-    return 
 
 data = [10, 100 ,100]
 data2 = [100,100,100]
@@ -14,10 +11,16 @@ st.write('hi')
 result = st.button('click')
 
 if result:
+    data = data2
     st.write(result)
+    st.area_chart(data=data)
+    st.write(data)
+    st.write(data2)
+else:
+    st.area_chart(data=data)
 
 
-st.area_chart(data=data)
+
 
 df
 
